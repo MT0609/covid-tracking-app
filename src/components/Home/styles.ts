@@ -13,6 +13,7 @@ export const CateSelectButon = styled(TouchableOpacity)`
 	border: #C0BEBE;
 	color: black;
 `
+
 export const CateSelectImage = styled(Image)`
 	width: 30px;
 	height: 30px;
@@ -21,7 +22,7 @@ export const CateSelectImage = styled(Image)`
 `
 
 export const MainStatisticNumber = styled(Text)`
-	fontSize: 16px;
+	fontSize: 18px;
 	fontWeight: bold;
 	color: white;
 `

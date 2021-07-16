@@ -61,3 +61,15 @@ export interface worldStatisticsResult {
   "criticalPerOneMillion": number,
   "affectedCountries": number
 }
+
+export interface HistoricalData {
+	"cases": {
+		[date: string]: number
+	},
+	"deaths": {
+		[date: string]: number
+	},
+	"recovered": {
+		[date: string]: number
+	}
+}
