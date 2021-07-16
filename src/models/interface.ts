@@ -73,3 +73,9 @@ export interface HistoricalData {
 		[date: string]: number
 	}
 }
+
+export interface CountryModel {
+	name: string,
+	code?: string,
+	flag?: string
+}

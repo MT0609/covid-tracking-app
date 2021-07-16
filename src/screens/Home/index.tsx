@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Page, PageTitle } from '../../components/Share';
-import { HomeCate } from '../../models/interface';
+import { HomeCate, CountryModel} from '../../models/interface';
 import CateSelect from '../../components/Home/CateSelect';
 import CountrySection from './CountrySection';
 import WorldSection from './WorldSection';
 
 const Home: React.FC = () => {
+	const [country, setCountry] = useState<CountryModel>({
+		name: "Vietnam",
+		flag: "",
+		code: "",
+	});
 	const [activeHomeCate, setActiveHomeCate] = useState<HomeCate | string>();
 
 	useEffect(() => {
@@ -15,9 +20,15 @@ const Home: React.FC = () => {
 	return (
 		<Page>
 			<PageTitle>Covid-19 Tracking</PageTitle>
-			<CateSelect onChange={(cate) => setActiveHomeCate(cate)}/>
+			<CateSelect 
+				selectedCountry={country} 
+				active={activeHomeCate || HomeCate.COUNTRY_TAB} 
+				onChange={(cate) => setActiveHomeCate(cate)}
+			/>
 			{
-				activeHomeCate === HomeCate.COUNTRY_TAB ? <CountrySection />: <WorldSection />
+				activeHomeCate === HomeCate.COUNTRY_TAB 
+				? <CountrySection country={country} onChangeCountry={(country) => setCountry(country)} />
+				: <WorldSection />
 			}
 		</Page>
 	)
