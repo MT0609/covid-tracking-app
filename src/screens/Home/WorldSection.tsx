@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { View } from 'react-native'
+import { View, Alert } from 'react-native'
+import { useTranslation } from 'react-i18next'
 import TopStatisticSection from '../../components/Home/TopStatistic' 
 import SubText from '../../components/Home/SubText'
 import { SubTitle } from '../../components/Share'
@@ -13,6 +14,7 @@ const WorldHomeSection: React.FC = () => {
 		"deaths": {},
 		"recovered": {}
 	});
+	const { t } = useTranslation();  
 	
 	useEffect(() => {
 		let isMounted = true;
@@ -25,6 +27,13 @@ const WorldHomeSection: React.FC = () => {
 				setWorldStatistic(data[0]);
 				setHistoryStatistic(data[1]);
 			}
+		})
+		.catch(error => {
+			console.log(error);
+			return Alert.alert(
+				"Oops",
+				"Error in resolving data"
+			);
 		});
 		return () => { isMounted = false };
 	}, [])
@@ -36,8 +45,8 @@ const WorldHomeSection: React.FC = () => {
 				recovered={worldStatistic ? worldStatistic.recovered : 0}
 				deaths={worldStatistic ? worldStatistic.deaths : 0}
 			/>
-			<SubText title="Population" content={worldStatistic ? worldStatistic.population : 0} />
-			<SubText title="Affected countries" content={worldStatistic ? worldStatistic.affectedCountries : "Not found"} />
+			<SubText t={t} title="population" content={worldStatistic ? worldStatistic.population : 0} />
+			<SubText t={t} title="affectedCountries" content={worldStatistic ? worldStatistic.affectedCountries : "Not found"} />
 			<View
 				style={{
 					marginTop: 20,
@@ -46,7 +55,7 @@ const WorldHomeSection: React.FC = () => {
 					borderBottomWidth: 0.8,
 				}}
 			/>
-			<SubTitle fontSize={18}>World Chart Statistic in last 30 days</SubTitle>
+			<SubTitle fontSize={18}>{t("worldLineChartStatistic")}</SubTitle>
 			<TimeLineChart data={historyStatistic} />
 		</View>
 	)

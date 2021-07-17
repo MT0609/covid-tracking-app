@@ -1,0 +1,20 @@
+{
+  "homepage": "Home",
+  "advicePage": "Advice",
+  "covid-19 Tracking": "Covid-19 Tracking",
+  "covid-19 Advice": "Covid-19 Advice",
+  "global": "Global",
+  "cases": "Cases",
+  "recovered": "Recovered",
+  "deaths": "Deaths",
+  "filterByCountry": "Filter by country",
+  "selectCountry": "Select a country",
+  "searchCountries": "Search countries",
+  "close": "Close",
+  "continent": "Continent",
+  "population": "Population",
+  "affectedCountries": "Affected countries",
+  "countryLineChartStatistic": "{{ country }} Chart Statistic in last 30 days", 
+  "worldLineChartStatistic": "World Chart Statistic in last 30 days",
+  "selectLanguage": "Select your language"
+}

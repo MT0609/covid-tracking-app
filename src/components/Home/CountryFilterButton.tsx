@@ -1,8 +1,11 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import { Image, Text } from 'react-native'
 import { FilterButton } from './styles';
 
 const CountrySelect: React.FC<{onPress: Function}> = (props) => {
+	const { t } = useTranslation();
+
 	return (
 		<FilterButton onPress={() => props.onPress()}>
 			<Image
@@ -13,7 +16,7 @@ const CountrySelect: React.FC<{onPress: Function}> = (props) => {
 				}}
 				source={require('../../../assets/filter.png')}
 			/>
-			<Text>Filter by country</Text>
+			<Text>{t("filterByCountry")}</Text>
 		</FilterButton>
 	)
 }

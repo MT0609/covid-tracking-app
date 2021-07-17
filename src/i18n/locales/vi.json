@@ -1,0 +1,20 @@
+{
+  "homepage": "Trang chủ",
+  "advicePage": "Lời khuyên",
+  "covid-19 Tracking": "TÌnh hình dịch bệnh",
+  "covid-19 Advice": "Lời khuyên phòng chống dịch",
+  "global": "Thế giới",
+  "cases": "Số ca mắc",
+  "recovered": "Hồi phục",
+  "deaths": "Ca tử vong",
+  "filterByCountry": "Tìm theo quốc gia",
+  "selectCountry": "Chọn quốc gia",
+  "searchCountries": "Tìm quốc gia",
+  "close": "Đóng",
+  "continent": "Châu lục",
+  "population": "Dân số",
+  "affectedCountries": "Số quốc gia chịu ảnh hưởng",
+  "countryLineChartStatistic": "Biểu đồ {{ country }} 30 ngày qua",
+  "worldLineChartStatistic": "Biểu đồ thế giới 30 ngày qua",
+  "selectLanguage": "Chọn ngôn ngữ của bạn"
+}

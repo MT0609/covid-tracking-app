@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { View, Alert } from 'react-native'
+import { useTranslation } from 'react-i18next'
 import TopStatisticSection from '../../components/Home/TopStatistic' 
 import SubText from '../../components/Home/SubText'
 import { SubTitle } from '../../components/Share'
@@ -20,6 +21,7 @@ const CountryHomeSection: React.FC<{
 		"recovered": {}
 	});
 	const [countryFilterShow, setCountryFilterShow] = useState<boolean>(false);
+	const { t } = useTranslation(); 
 	
 	useEffect(() => {
 		let isMounted = true;
@@ -76,8 +78,8 @@ const CountryHomeSection: React.FC<{
 				onClose={() => setCountryFilterShow(false)} 
 			/>
 
-			<SubText title="Population" content={countryStatistic ? countryStatistic.population : 0} />
-			<SubText title="Continent" content={countryStatistic ? countryStatistic.continent : "Not found"} />
+			<SubText t={t} title="population" content={countryStatistic ? countryStatistic.population : 0} />
+			<SubText t={t} title="continent" content={countryStatistic ? countryStatistic.continent : "Not found"} />
 			<View
 				style={{
 					marginTop: 20,
@@ -86,7 +88,7 @@ const CountryHomeSection: React.FC<{
 					borderBottomWidth: 0.8,
 				}}
 			/>
-			<SubTitle fontSize={18}>{countryStatistic?.country} Chart Statistic in last 30 days</SubTitle>
+			<SubTitle fontSize={18}>{t("countryLineChartStatistic", { country: countryStatistic?.country})}</SubTitle>
 			<TimeLineChart data={historyStatistic} />
 		</View>
 	)

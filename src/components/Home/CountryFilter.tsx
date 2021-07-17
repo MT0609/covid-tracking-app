@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react'
 import { FlatList, Modal, Text, TouchableOpacity, View } from 'react-native'
+import { useTranslation } from 'react-i18next'
 import { Input } from 'react-native-elements'
 import { SubTitle } from '../Share'
 import { countries } from '../../models/countries'
@@ -30,6 +31,7 @@ interface CountrySelectProps {
 const CountrySelect: React.FC<CountrySelectProps> = (props) => {
 	const [countryInput, setCountryInput] = useState<string>("");
 	const [filteredCountries, setFilteredCountries] = useState<Array<CountryModel>>(countries);
+	const { t } = useTranslation(); 
 
 	const typingTimeoutRef = useRef<any>(null);
 	
@@ -54,15 +56,15 @@ const CountrySelect: React.FC<CountrySelectProps> = (props) => {
 			<View style={{backgroundColor: "#000000aa", flex: 1}}>
 				<View style={{ backgroundColor: "#ffffff", margin: 50, marginBottom: 120, padding: 20}}>
 					<View style={{ paddingBottom: 10}}>
-						<SubTitle>Select a new country</SubTitle>
+						<SubTitle>{t("selectCountry")}</SubTitle>
 					</View>
 					<Input 
 						style={{ fontSize: 16 }} 
 						value={countryInput} 
 						onChangeText={handleChangeInput} 
-						placeholder="Type in new country" 
+						placeholder={t("searchCountries")} 
 					/>
-					<View style={{ height: "80%" }}>
+					<View style={{ maxHeight: 500 }}>
 						<FlatList
 							data={filteredCountries}
 							renderItem={({ item }) => (
@@ -75,7 +77,7 @@ const CountrySelect: React.FC<CountrySelectProps> = (props) => {
 						/>
 					</View>
 					<CloseModalButton onPress={() => props.onClose()}>
-						<Text style={{ color: "black" }}>Close</Text>
+						<Text style={{ color: "black" }}>{t("close")}</Text>
 					</CloseModalButton>
 				</View>
 			</View>

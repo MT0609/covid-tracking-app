@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from "react-i18next";
 import { FlexBox } from '../../components/Share'
 import { HomeCate, CountryModel } from '../../models/interface'
 import { CateSelectButon, CateSelectImage, CateSelectText } from './styles'
@@ -12,6 +13,7 @@ interface Props {
 // country or world
 const CateSelect: React.FC<Props> = (props) => {
 	const { selectedCountry, active = HomeCate.COUNTRY_TAB } = props;
+	const { t } = useTranslation();
 
 	return (
 		<FlexBox row>
@@ -27,7 +29,7 @@ const CateSelect: React.FC<Props> = (props) => {
 				<CateSelectImage
 					source={require('../../../assets/world.png')}
 				/>
-				<CateSelectText active={active === HomeCate.WORLD_TAB}>Global</CateSelectText>
+				<CateSelectText active={active === HomeCate.WORLD_TAB}>{t("global")}</CateSelectText>
 			</CateSelectButon>
 		</FlexBox>
 	)
