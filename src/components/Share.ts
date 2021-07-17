@@ -14,6 +14,7 @@ export const FlexBox = styled(View)<{row?: boolean, justify?: string}>`
 		flexDirection: row;
   	`}
 	justifyContent: ${p => p.justify || "flex-start"};
+	alignItems: center;
 `
 
 export const PageTitle = styled(Text)`

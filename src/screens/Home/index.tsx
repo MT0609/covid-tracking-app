@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ScrollView } from 'react-native';
 import { Page, PageTitle } from '../../components/Share';
 import { HomeCate, CountryModel} from '../../models/interface';
 import CateSelect from '../../components/Home/CateSelect';
@@ -18,19 +19,21 @@ const Home: React.FC = () => {
 	}, [])
 
 	return (
-		<Page>
-			<PageTitle>Covid-19 Tracking</PageTitle>
-			<CateSelect 
-				selectedCountry={country} 
-				active={activeHomeCate || HomeCate.COUNTRY_TAB} 
-				onChange={(cate) => setActiveHomeCate(cate)}
-			/>
-			{
-				activeHomeCate === HomeCate.COUNTRY_TAB 
-				? <CountrySection country={country} onChangeCountry={(country) => setCountry(country)} />
-				: <WorldSection />
-			}
-		</Page>
+		<ScrollView>
+			<Page>
+				<PageTitle>Covid-19 Tracking</PageTitle>
+				<CateSelect 
+					selectedCountry={country} 
+					active={activeHomeCate || HomeCate.COUNTRY_TAB} 
+					onChange={(cate) => setActiveHomeCate(cate)}
+				/>
+				{
+					activeHomeCate === HomeCate.COUNTRY_TAB 
+					? <CountrySection country={country} onChangeCountry={(country) => setCountry(country)} />
+					: <WorldSection />
+				}
+			</Page>
+		</ScrollView>
 	)
 }
 

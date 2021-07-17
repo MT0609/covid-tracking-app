@@ -47,6 +47,13 @@ const CountryHomeSection: React.FC<{
 					code: ""
 				})
 			}
+		})
+		.catch(error => {
+			console.log(error);
+			return Alert.alert(
+				"Oops",
+				"Error in resolving data"
+			);
 		});
   		return () => { isMounted = false };
 	}, [country.name]);
